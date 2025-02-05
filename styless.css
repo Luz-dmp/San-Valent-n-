@@ -1,24 +1,68 @@
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     text-align: center;
-    background-color: #ffcccb;
+    background: linear-gradient(to bottom, #ff7675, #ffeaa7);
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
-    margin-top: 50px;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, p {
+    color: #2d3436;
 }
 
 .spiderman {
-    width: 200px;
-    height: auto;
+    position: relative;
+    width: 150px;
+    animation: swing 2s infinite ease-in-out;
+}
+
+.spiderman img {
+    width: 100%;
+    transform: scaleX(-1);
+}
+
+.web {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: #2d3436;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.buttons {
+    margin-top: 20px;
 }
 
 button {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
     margin: 10px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
 #yes {
@@ -27,6 +71,23 @@ button {
 }
 
 #no {
-    background-color: #f44336;
+    background-color: #e74c3c;
     color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#no:hover {
+    position: relative;
+    animation: move 0.3s ease-in-out;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(20px, -20px); }
+    50% { transform: translate(-20px, 20px); }
+    75% { transform: translate(20px, 20px); }
+    100% { transform: translate(-20px, -20px); }
 }
